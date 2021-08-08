@@ -4,9 +4,11 @@ import com.book.bookclub.entity.User;
 import com.book.bookclub.reponsitory.UserReponsitory;
 import com.book.bookclub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class UserServiceImpl implements UserService {
 
     @Autowired

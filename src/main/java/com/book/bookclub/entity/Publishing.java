@@ -10,16 +10,18 @@ import java.util.Objects;
 @Table(name = "publishing")
 @Setter
 @Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Publishing {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "publishing_id")
     private Integer publishingId;
 
     @Column(name = "publishing_name")
-    private Integer publishingName;
+    private String publishingName;
 
     @Column(name = "address")
     private String address;

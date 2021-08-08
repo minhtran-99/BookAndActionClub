@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping("api/user")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class UserController {
+
     @Autowired
     private UserService userService;
 
