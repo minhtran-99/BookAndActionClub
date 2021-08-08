@@ -16,19 +16,19 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId")
-    private Integer id;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    @Column(name = "accountId")
+    @Column(name = "account_id")
     private Integer accountId;
 
-    @Column(name = "username")
+    @Column(name = "user_name")
     private String userName;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "fullName")
+    @Column(name = "full_name")
     private String fullName;
 
     @Column(name = "class")
@@ -43,17 +43,11 @@ public class User {
     @Column(name = "status")
     private Boolean status;
 
-    @Column(name = "createDate")
+    @Column(name = "create_date")
     private Date createDate;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinTable(name = "role_user", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {
-                    @JoinColumn(name = "role_id", referencedColumnName = "id")})
-    private Set<Role> roles;
-
-    public User(Integer id, Integer accountId, String userName, String password, String fullName, String classRoom, String phone, String mail, Boolean status, Date createDate, Set<Role> roles) {
-        this.id = id;
+    public User(Integer userId, Integer accountId, String userName, String password, String fullName, String classRoom, String phone, String mail, Boolean status, Date createDate) {
+        this.userId = userId;
         this.accountId = accountId;
         this.userName = userName;
         this.password = password;
@@ -63,7 +57,6 @@ public class User {
         this.mail = mail;
         this.status = status;
         this.createDate = createDate;
-        this.roles = roles;
     }
 
     @Override
@@ -71,11 +64,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User question = (User) o;
-        return id == question.id && Objects.equals(accountId, question.accountId) && Objects.equals(userName, question.userName) && Objects.equals(password, question.password) && Objects.equals(fullName, question.fullName) && Objects.equals(classRoom, question.classRoom) && Objects.equals(phone, question.phone) && Objects.equals(mail, question.mail) && Objects.equals(status, question.status) && Objects.equals(createDate, question.createDate);
+        return userId == question.userId && Objects.equals(accountId, question.accountId) && Objects.equals(userName, question.userName) && Objects.equals(password, question.password) && Objects.equals(fullName, question.fullName) && Objects.equals(classRoom, question.classRoom) && Objects.equals(phone, question.phone) && Objects.equals(mail, question.mail) && Objects.equals(status, question.status) && Objects.equals(createDate, question.createDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, accountId, userName, password, fullName, classRoom, phone, mail, status, createDate);
+        return Objects.hash(userId, accountId, userName, password, fullName, classRoom, phone, mail, status, createDate);
     }
 }
