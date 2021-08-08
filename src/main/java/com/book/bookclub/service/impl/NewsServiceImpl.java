@@ -44,7 +44,7 @@ public class NewsServiceImpl implements NewsService {
             }
             if (news.getContent() == null)
             {
-                news.setTitle(newsCreate.getTitle());
+                news.setContent(newsCreate.getContent());
             }
             if (news.getImage() == null){
                 news.setImage(newsCreate.getImage());
