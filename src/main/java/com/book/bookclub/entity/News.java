@@ -10,16 +10,15 @@ import java.util.Objects;
 @Table(name = "news")
 @Setter
 @Getter
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "newsId")
-    private Integer id;
+    @Column(name = "news_id")
+    private Integer newsId;
 
-    @Column(name = "accountId")
+    @Column(name = "account_id")
     private Integer accountId;
 
     @Column(name = "title")
@@ -31,7 +30,7 @@ public class News {
     @Column(name = "image")
     private String image;
 
-    @Column(name = "createDate")
+    @Column(name = "create_date")
     private Date createDate;
 
     @Override
@@ -39,11 +38,11 @@ public class News {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         News question = (News) o;
-        return id == question.id && Objects.equals(accountId, question.accountId) && Objects.equals(title, question.title) && Objects.equals(content, question.content) && Objects.equals(image, question.image) && Objects.equals(createDate, question.createDate);
+        return newsId == question.newsId && Objects.equals(accountId, question.accountId) && Objects.equals(title, question.title) && Objects.equals(content, question.content) && Objects.equals(image, question.image) && Objects.equals(createDate, question.createDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,accountId, title, content, image, createDate);
+        return Objects.hash(newsId,accountId, title, content, image, createDate);
     }
 }

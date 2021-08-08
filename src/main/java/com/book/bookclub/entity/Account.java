@@ -10,19 +10,18 @@ import java.util.Objects;
 @Table(name = "account")
 @Setter
 @Getter
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "accountId")
-    private Integer id;
+    @Column(name = "account_id")
+    private Integer accountId;
 
-    @Column(name = "accountName")
+    @Column(name = "account_name")
     private String accountName;
 
-    @Column(name = "accountPass")
+    @Column(name = "account_pass")
     private String accountPass;
 
     @Column(name = "phone")
@@ -34,10 +33,10 @@ public class Account {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "accountStatus")
+    @Column(name = "account_status")
     private Boolean accountStatus;
 
-    @Column(name = "createDate")
+    @Column(name = "create_date")
     private Date createDate;
 
     @Override
@@ -45,11 +44,11 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account question = (Account) o;
-        return id == question.id && Objects.equals(accountName, question.accountName) && Objects.equals(accountPass, question.accountPass) && Objects.equals(phone, question.phone) && Objects.equals(mail, question.mail) && Objects.equals(address, question.address) && Objects.equals(accountStatus, question.accountStatus) && Objects.equals(createDate, question.createDate);
+        return accountId == question.accountId && Objects.equals(accountName, question.accountName) && Objects.equals(accountPass, question.accountPass) && Objects.equals(phone, question.phone) && Objects.equals(mail, question.mail) && Objects.equals(address, question.address) && Objects.equals(accountStatus, question.accountStatus) && Objects.equals(createDate, question.createDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,accountName, accountPass, phone, mail, address, accountStatus, createDate);
+        return Objects.hash(accountId,accountName, accountPass, phone, mail, address, accountStatus, createDate);
     }
 }

@@ -17,13 +17,13 @@ import java.util.Objects;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "categoryId")
-    private Integer id;
+    @Column(name = "category_id")
+    private Integer categoryId;
 
-    @Column(name = "categoryName")
+    @Column(name = "category_name")
     private String categoryName;
 
-    @Column(name = "createDate")
+    @Column(name = "create_date")
     private Date createDate;
 
     @Override
@@ -31,11 +31,11 @@ public class Category {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Category question = (Category) o;
-        return id == question.id && Objects.equals(categoryName, question.categoryName) && Objects.equals(createDate, question.createDate);
+        return categoryId == question.categoryId && Objects.equals(categoryName, question.categoryName) && Objects.equals(createDate, question.createDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, categoryName, createDate);
+        return Objects.hash(categoryId, categoryName, createDate);
     }
 }

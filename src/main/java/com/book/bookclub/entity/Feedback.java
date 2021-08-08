@@ -10,16 +10,15 @@ import java.util.Objects;
 @Table(name = "feedback")
 @Setter
 @Getter
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "feedbackId")
-    private Integer id;
+    @Column(name = "feedback_id")
+    private Integer feedbackId;
 
-    @Column(name = "username")
+    @Column(name = "user_name")
     private String userName;
 
     @Column(name = "mail")
@@ -29,9 +28,9 @@ public class Feedback {
     private String content;
 
     @Column(name = "status")
-    private String status;
+    private Boolean status;
 
-    @Column(name = "createDate")
+    @Column(name = "create_date")
     private Date createDate;
 
     @Override
@@ -39,11 +38,11 @@ public class Feedback {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Feedback question = (Feedback) o;
-        return id == question.id && Objects.equals(userName, question.userName) && Objects.equals(mail, question.mail) && Objects.equals(content, question.content) && Objects.equals(status, question.status) && Objects.equals(createDate, question.createDate);
+        return feedbackId == question.feedbackId && Objects.equals(userName, question.userName) && Objects.equals(mail, question.mail) && Objects.equals(content, question.content) && Objects.equals(status, question.status) && Objects.equals(createDate, question.createDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,userName, mail, content, status, createDate);
+        return Objects.hash(feedbackId,userName, mail, content, status, createDate);
     }
 }

@@ -10,22 +10,21 @@ import java.util.Objects;
 @Table(name = "author")
 @Setter
 @Getter
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "authorId")
-    private Integer id;
+    @Column(name = "author_id")
+    private Integer authorId;
 
-    @Column(name = "authorName")
+    @Column(name = "author_name")
     private String authorName;
 
     @Column(name = "note")
     private String note;
 
-    @Column(name = "createDate")
+    @Column(name = "create_date")
     private Date createDate;
 
     @Override
@@ -33,11 +32,11 @@ public class Author {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Author question = (Author) o;
-        return id == question.id && Objects.equals(authorName, question.authorName) && Objects.equals(note, question.note) && Objects.equals(createDate, question.createDate);
+        return authorId == question.authorId && Objects.equals(authorName, question.authorName) && Objects.equals(note, question.note) && Objects.equals(createDate, question.createDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,authorName, note, createDate);
+        return Objects.hash(authorId,authorName, note, createDate);
     }
 }

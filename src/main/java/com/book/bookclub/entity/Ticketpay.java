@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ticket_pay", schema = "book_club", catalog = "")
+@Table(name = "ticket_pay")
 @Getter
 @Setter
 @Data
@@ -16,31 +16,31 @@ import java.util.Objects;
 public class Ticketpay {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tichketPayId")
-    private Integer id;
+    @Column(name = "ticket_pay_id")
+    private Integer ticketPayId;
 
-    @Column(name = "tichketBorrowId")
+    @Column(name = "ticket_borrow_id")
     private Integer ticketBorrowId;
 
-    @Column(name = "bookId")
+    @Column(name = "book_id")
     private Integer bookId;
 
-    @Column(name = "accountId")
+    @Column(name = "account_id")
     private Integer accountId;
 
-    @Column(name = "payStatus")
+    @Column(name = "pay_status")
     private Boolean payStatus;
 
-    @Column(name = "payFee")
+    @Column(name = "pay_fee")
     private Integer payFee;
 
     @Column(name = "note")
     private String note;
 
-    @Column(name = "borrowDate")
+    @Column(name = "borrow_date")
     private Date borrowDate;
 
-    @Column(name = "payDate")
+    @Column(name = "pay_date")
     private Date payDate;
 
     @Override
@@ -48,11 +48,11 @@ public class Ticketpay {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ticketpay question = (Ticketpay) o;
-        return id == question.id && Objects.equals(ticketBorrowId, question.ticketBorrowId) && Objects.equals(bookId, question.bookId) && Objects.equals(accountId, question.accountId) && Objects.equals(payStatus, question.payStatus) && Objects.equals(payFee, question.payFee) && Objects.equals(note, question.note) && Objects.equals(borrowDate, question.borrowDate) && Objects.equals(payDate, question.payDate);
+        return ticketPayId == question.ticketPayId && Objects.equals(ticketBorrowId, question.ticketBorrowId) && Objects.equals(bookId, question.bookId) && Objects.equals(accountId, question.accountId) && Objects.equals(payStatus, question.payStatus) && Objects.equals(payFee, question.payFee) && Objects.equals(note, question.note) && Objects.equals(borrowDate, question.borrowDate) && Objects.equals(payDate, question.payDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,ticketBorrowId, bookId, accountId, payStatus, payFee, note, borrowDate, payDate);
+        return Objects.hash(ticketPayId,ticketBorrowId, bookId, accountId, payStatus, payFee, note, borrowDate, payDate);
     }
 }

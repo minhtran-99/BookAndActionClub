@@ -3,11 +3,10 @@ package com.book.bookclub.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "account_role")
+@Table(name = "account_role", schema = "club_book", catalog = "")
 @Setter
 @Getter
 @Data
@@ -16,13 +15,13 @@ import java.util.Objects;
 public class AccountRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "accountRoleId")
-    private Integer id;
+    @Column(name = "account_role_id")
+    private Integer accountRoleId;
 
-    @Column(name = "accountId")
+    @Column(name = "account_id")
     private Integer accountId;
 
-    @Column(name = "roleId")
+    @Column(name = "role_id")
     private Integer roleId;
 
     @Override
@@ -30,11 +29,11 @@ public class AccountRole {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountRole question = (AccountRole) o;
-        return id == question.id && Objects.equals(accountId, question.accountId) && Objects.equals(roleId, question.roleId);
+        return accountRoleId == question.accountRoleId && Objects.equals(accountId, question.accountId) && Objects.equals(roleId, question.roleId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,accountId, roleId);
+        return Objects.hash(accountRoleId,accountId, roleId);
     }
 }

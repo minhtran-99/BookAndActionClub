@@ -10,34 +10,33 @@ import java.util.Objects;
 @Table(name = "book")
 @Setter
 @Getter
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "bookId")
-    private Integer id;
+    @Column(name = "book_id")
+    private Integer bookId;
 
-    @Column(name = "authorId")
+    @Column(name = "author_id")
     private Integer authorId;
 
-    @Column(name = "categoryId")
+    @Column(name = "category_id")
     private Integer categoryId;
 
-    @Column(name = "publishingId")
+    @Column(name = "publishing_id")
     private Integer publishingId;
 
-    @Column(name = "bookname")
+    @Column(name = "book_name")
     private String bookName;
 
     @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "yearPublishing")
+    @Column(name = "year_publishing")
     private Date yearPublishing;
 
-    @Column(name = "createDate")
+    @Column(name = "create_date")
     private Date createDate;
 
     @Column(name = "image")
@@ -48,11 +47,11 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book question = (Book) o;
-        return id == question.id && Objects.equals(authorId, question.authorId) && Objects.equals(categoryId, question.categoryId) && Objects.equals(publishingId, question.publishingId) && Objects.equals(bookName, question.bookName) && Objects.equals(quantity, question.quantity) && Objects.equals(yearPublishing, question.yearPublishing) && Objects.equals(createDate, question.createDate) && Objects.equals(image, question.image);
+        return bookId == question.bookId && Objects.equals(authorId, question.authorId) && Objects.equals(categoryId, question.categoryId) && Objects.equals(publishingId, question.publishingId) && Objects.equals(bookName, question.bookName) && Objects.equals(quantity, question.quantity) && Objects.equals(yearPublishing, question.yearPublishing) && Objects.equals(createDate, question.createDate) && Objects.equals(image, question.image);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, authorId, categoryId, publishingId, bookName, quantity, yearPublishing, createDate, image);
+        return Objects.hash(bookId, authorId, categoryId, publishingId, bookName, quantity, yearPublishing, createDate, image);
     }
 }

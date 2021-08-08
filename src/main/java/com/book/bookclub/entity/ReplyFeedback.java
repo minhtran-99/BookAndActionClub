@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "reply_feedback")
+@Table(name = "reply_feedback", schema = "club_book", catalog = "")
 @Setter
 @Getter
 @Data
@@ -16,19 +16,19 @@ import java.util.Objects;
 public class ReplyFeedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "replyfeedbackId")
-    private Integer id;
+    @Column(name = "reply_feedback_id")
+    private Integer replyfeedbackId;
 
-    @Column(name = "feedbackId")
+    @Column(name = "feedback_id")
     private Integer feedbackId;
 
-    @Column(name = "accountId")
+    @Column(name = "account_id")
     private Integer accountId;
 
-    @Column(name = "replycontent")
+    @Column(name = "reply_content")
     private String replyContent;
 
-    @Column(name = "createDate")
+    @Column(name = "create_date")
     private Date createDate;
 
     @Override
@@ -36,11 +36,11 @@ public class ReplyFeedback {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ReplyFeedback question = (ReplyFeedback) o;
-        return id == question.id && Objects.equals(feedbackId, question.feedbackId) && Objects.equals(accountId, question.accountId) && Objects.equals(replyContent, question.replyContent) && Objects.equals(createDate, question.createDate);
+        return replyfeedbackId == question.replyfeedbackId && Objects.equals(feedbackId, question.feedbackId) && Objects.equals(accountId, question.accountId) && Objects.equals(replyContent, question.replyContent) && Objects.equals(createDate, question.createDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, feedbackId, accountId, replyContent, createDate);
+        return Objects.hash(replyfeedbackId, feedbackId, accountId, replyContent, createDate);
     }
 }

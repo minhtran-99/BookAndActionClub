@@ -10,19 +10,18 @@ import java.util.Objects;
 @Table(name = "role")
 @Setter
 @Getter
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "roleId")
-    private Integer id;
+    @Column(name = "role_id")
+    private Integer roleId;
 
-    @Column(name = "roleName")
+    @Column(name = "role_name")
     private String roleName;
 
-    @Column(name = "createDate")
+    @Column(name = "create_date")
     private Date createDate;
 
     @Override
@@ -30,11 +29,11 @@ public class Role {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Role question = (Role) o;
-        return id == question.id && Objects.equals(roleName, question.roleName) && Objects.equals(createDate, question.createDate);
+        return roleId == question.roleId && Objects.equals(roleName, question.roleName) && Objects.equals(createDate, question.createDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, roleName, createDate);
+        return Objects.hash(roleId, roleName, createDate);
     }
 }
